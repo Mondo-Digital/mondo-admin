@@ -14,13 +14,13 @@
   </div>
   <div id="menu-items" class="hidden w-full block flex-grow md:flex md:items-center md:w-auto">
     <div class="text-sm md:flex-grow">
-      <a href="#" class="block mt-4 md:inline-block md:mt-0 text-gray-700 hover:text-gray-900 mr-4">
-        Link 1
-      </a>
-      <a href="#" class="block mt-4 md:inline-block md:mt-0 text-gray-700 hover:text-gray-900 mr-4">
+      <% if user_signed_in? %>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'menu-link') %>
+      <% end %>
+      <a href="#" class="menu-link">
         Link 2
       </a>
-      <a href="#" class="block mt-4 md:inline-block md:mt-0 text-gray-700 hover:text-gray-900 mr-4">
+      <a href="#" class="menu-link">
         Link 3
       </a>
     </div>
