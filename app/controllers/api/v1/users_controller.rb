@@ -11,7 +11,7 @@ module Api
 
       def user_params
         params
-          .permit(:email)
+          .permit(:email, :name)
           .merge(
             password: Devise.friendly_token
           )
