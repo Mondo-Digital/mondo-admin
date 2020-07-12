@@ -7,7 +7,6 @@
   <body class="flex flex-col min-h-screen bg-white text-gray-800">
     <%= render 'layouts/navigation' %>
     <main class="flex-1">
-      <%= render 'layouts/flash_messages' %>
       <% if user_signed_in? %>
         <%= render 'layouts/panel_links' %>
       <% end %>
