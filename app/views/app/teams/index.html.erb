@@ -1,0 +1,25 @@
+<table class="table-auto">
+  <thead>
+    <tr class="text-left">
+      <th class="px-4 py-2">Name</th>
+      <th class="px-4 py-2" colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td class="border px-4 py-2"><%= team.name %></td>
+        <td class="border px-4 py-2">
+          <%= link_to 'Show', app_team_path(team) %>
+          <%= link_to 'Edit', edit_app_team_path(team) %>
+          <%= link_to 'Destroy', app_team_path(team), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Team', new_app_team_path %>

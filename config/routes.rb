@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace 'app' do
     resources :users, only: [:index]
+    resources :teams
   end
 
   root to: 'app/users#index'
