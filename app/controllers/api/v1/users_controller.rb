@@ -2,7 +2,9 @@ module Api
   module V1
     class UsersController < Api::V1::ApiController
       def create
-        User.create!(user_params)
+        User
+          .find_or_initialize_by(amazon_user_id: user_params[:amazon_user_id])
+          .update!(user_params)
 
         head :ok
       end
@@ -11,7 +13,7 @@ module Api
 
       def user_params
         params
-          .permit(:email, :name)
+          .permit(:email, :name, :amazon_user_id)
           .merge(
             password: Devise.friendly_token
           )

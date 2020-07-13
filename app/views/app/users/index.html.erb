@@ -10,7 +10,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td class="border px-4 py-2"><%= user.id %></td>
+        <td class="border px-4 py-2"><%= user.amazon_user_id[-6..] %></td>
         <td class="border px-4 py-2"><%= user.email %></td>
         <td class="border px-4 py-2"><%= user.name %></td>
         <td class="border px-4 py-2"></td>
