@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Api::V1::ApiController do
   controller do
@@ -9,13 +9,13 @@ RSpec.describe Api::V1::ApiController do
     end
   end
 
-  let(:valid_token) { 'S3CR3TT0K3N' }
+  let(:valid_token) { "S3CR3TT0K3N" }
 
-  context 'when client token is valid' do
-    it 'checks for a valid token' do
-      stub_const('ENV', 'CLIENT_TOKEN' => valid_token)
+  context "when client token is valid" do
+    it "checks for a valid token" do
+      stub_const("ENV", "CLIENT_TOKEN" => valid_token)
 
-      request.headers['HTTP_CLIENT_TOKEN'] = valid_token
+      request.headers["HTTP_CLIENT_TOKEN"] = valid_token
       get :index,
           params: {}
 
@@ -23,11 +23,11 @@ RSpec.describe Api::V1::ApiController do
     end
   end
 
-  context 'when client token is not valid' do
-    it 'checks for a valid token' do
-      stub_const('ENV', 'CLIENT_TOKEN' => valid_token)
+  context "when client token is not valid" do
+    it "checks for a valid token" do
+      stub_const("ENV", "CLIENT_TOKEN" => valid_token)
 
-      request.headers['HTTP_CLIENT_TOKEN'] = 'some-token'
+      request.headers["HTTP_CLIENT_TOKEN"] = "some-token"
       get :index,
           params: {}
 

@@ -1,6 +1,6 @@
 module App
   class TeamsController < ApplicationController
-    before_action :set_team, only: [:show, :edit, :update, :destroy]
+    before_action :set_team, only: %i[show edit update destroy]
 
     # GET /teams
     # GET /teams.json
@@ -10,8 +10,7 @@ module App
 
     # GET /teams/1
     # GET /teams/1.json
-    def show
-    end
+    def show; end
 
     # GET /teams/new
     def new
@@ -19,8 +18,7 @@ module App
     end
 
     # GET /teams/1/edit
-    def edit
-    end
+    def edit; end
 
     # POST /teams
     # POST /teams.json
@@ -29,7 +27,7 @@ module App
 
       respond_to do |format|
         if @team.save
-          format.html { redirect_to [:app, @team], notice: 'Team was successfully created.' }
+          format.html { redirect_to [:app, @team], notice: "Team was successfully created." }
           format.json { render :show, status: :created, location: @team }
         else
           format.html { render :new }
@@ -43,7 +41,7 @@ module App
     def update
       respond_to do |format|
         if @team.update(team_params)
-          format.html { redirect_to [:app, @team], notice: 'Team was successfully updated.' }
+          format.html { redirect_to [:app, @team], notice: "Team was successfully updated." }
           format.json { render :show, status: :ok, location: @team }
         else
           format.html { render :edit }
@@ -57,7 +55,7 @@ module App
     def destroy
       @team.destroy
       respond_to do |format|
-        format.html { redirect_to app_teams_url, notice: 'Team was successfully destroyed.' }
+        format.html { redirect_to app_teams_url, notice: "Team was successfully destroyed." }
         format.json { head :no_content }
       end
     end

@@ -11,7 +11,7 @@ module Api
       private
 
       def valid_client_token?
-        request.headers['HTTP_CLIENT_TOKEN'] == ENV.fetch('CLIENT_TOKEN')
+        request.headers["HTTP_CLIENT_TOKEN"] == ENV.fetch("CLIENT_TOKEN")
       end
     end
   end

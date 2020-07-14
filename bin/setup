@@ -25,4 +25,6 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n== Restarting application server =="
   system! 'bin/rails restart'
+
+  system("ln -s -f ../../hooks/pre-commit .git/hooks")
 end
