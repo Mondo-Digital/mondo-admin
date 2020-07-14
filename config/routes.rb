@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   namespace "app" do
-    resources :users, only: [:index]
+    resources :users
     resources :teams
   end
 

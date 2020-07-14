@@ -5,6 +5,7 @@
       <th class="px-4 py-2">Email</th>
       <th class="px-4 py-2">Nome</th>
       <th class="px-4 py-2">Time</th>
+      <th class="px-4 py-2">Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,12 @@
         <td class="border px-4 py-2"><%= user.email %></td>
         <td class="border px-4 py-2"><%= user.name %></td>
         <td class="border px-4 py-2"></td>
+
+        <td class="border px-4 py-2">
+          <%= link_to 'Show', [:app, user] %>
+          <%= link_to 'Edit', edit_app_user_path(user) %>
+          <%= link_to 'Destroy', [:app, user], method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,19 @@
+<p>
+  <strong>Nome:</strong>
+  <%= @user.name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Time:</strong>
+  <%= link_to @user.team.name, app_team_path(@user.team) %>
+</p>
+<p>
+  <strong>Amazon ID:</strong>
+  <%= @user.amazon_user_id[-6..] %>
+</p>
+
+<%= link_to 'Edit', edit_app_user_path(@user) %> |
+<%= link_to 'Back', app_users_path %>
