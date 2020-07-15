@@ -1,6 +1,9 @@
-<h1>Editing Team</h1>
+<div class="p-4">
+  <h1>Time: <%= @team.name %></h1>
 
-<%= render 'form', team: @team %>
+  <%= render 'form', team: @team %>
 
-<%= link_to 'Show', app_team_path(@team) %> |
-<%= link_to 'Back', app_teams_path %>
+  <div>
+    <%= link_to 'Lista de times', app_teams_path, class: 'inline-block align-baseline font-bold text-sm hover:text-gray-900' %>
+  </div>
+</div>

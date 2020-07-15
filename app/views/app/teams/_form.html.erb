@@ -1,4 +1,4 @@
-<%= form_with(model: [:app, team], local: true) do |form| %>
+<%= form_with(model: [:app, team], local: true, class: "w-full max-w-lg") do |form| %>
   <% if team.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
@@ -11,12 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, value: team.name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="md:flex md:items-center mb-6">
+    <div class="md:max-w-1/3 m-2">
+      <%= form.label :name, "Nome", class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+    </div>
+    <div class="w-2/3 md:w-1/3 m-2">
+      <%= form.text_field :name, value: team.name, class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+    </div>
+    <div class="md:w-1/3 m-2">
+      <%= form.submit "Atualizar", class: "shadow hover:bg-gray-400 focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded" %>
+    </div>
   </div>
 <% end %>
