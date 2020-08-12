@@ -4,7 +4,7 @@ module Api
       before_action :set_team
 
       def index
-        @news = @team.news
+        render json: Presenters::News::Alexa.parse(@team.news)
       end
 
       def create

@@ -10,13 +10,15 @@ RSpec.describe Api::V1::NewsController, type: :controller do
   describe "GET index" do
     it "lists all news for a team" do
       team = Team.create(name: "teste_team")
-      news1 = News.create(body: "body 1", team: team)
-      news2 = News.create(body: "body 2", team: team)
+      news1 = News.create(title: "title1", body: "body 1", link: "link1", team: team)
+      news2 = News.create(title: "title2", body: "body 2", link: "link2", team: team)
 
       get :index, params: { team_id: team.id }, format: :json
 
       expect(response).to be_successful
-      expect(response.body).to include(news1.to_json, news2.to_json)
+      expect(response.body).to eq(
+        Presenters::News::Alexa.parse([news1, news2]).to_json
+      )
     end
   end
 
