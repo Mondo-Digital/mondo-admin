@@ -15,7 +15,11 @@ module Api
       end
 
       def valid_request_token?
-        request.params.fetch("token", "")
+        request.params["token"] && current_team.present?
+      end
+
+      def current_team
+        @current_team ||= Team.find_by(access_token: request.params["token"])
       end
     end
   end

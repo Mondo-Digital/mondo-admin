@@ -1,14 +1,12 @@
 module Api
   module V1
     class NewsController < Api::V1::ApiController
-      before_action :set_team
-
       def index
-        render json: Presenters::News::Alexa.parse(@team.news)
+        render json: Presenters::News::Alexa.parse(current_team.news)
       end
 
       def create
-        @news = News.new(news_params)
+        @news = current_team.news.new(news_params)
 
         if @news.save
           head :ok
@@ -19,12 +17,8 @@ module Api
 
       private
 
-      def set_team
-        @team = Team.find(params[:team_id])
-      end
-
       def news_params
-        params.permit(:team_id, :body)
+        params.permit(:body, :title, :link)
       end
     end
   end

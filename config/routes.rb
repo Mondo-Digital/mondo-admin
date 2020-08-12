@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :users, only: [:create]
 
       resources :teams, only: [], param: :team_id do
-        member do
+        collection do
           resources :news, only: %i[create index]
         end
       end

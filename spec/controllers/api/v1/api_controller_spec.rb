@@ -24,7 +24,7 @@ RSpec.describe Api::V1::ApiController do
   end
 
   context "when client token is not valid" do
-    xit "returns 403" do
+    it "returns 403" do
       stub_const("ENV", "CLIENT_TOKEN" => valid_token)
 
       request.headers["HTTP_CLIENT_TOKEN"] = "some-token"
